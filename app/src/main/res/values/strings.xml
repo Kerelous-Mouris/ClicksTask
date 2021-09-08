@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">Clicks Task</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nice_to_see_you" translatable="false">Nice to see you!</string>
+    <string name="welcome" translatable="false">Welcome!</string>
+    <string name="search" translatable="false">search sources…</string>
+    <string name="please_wait">Please Wait&#8230;</string>
+    <string name="loading_news">Loading News</string>
+
+</resources>

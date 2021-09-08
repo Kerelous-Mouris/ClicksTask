@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/drawable/search_icon.xml" value="0.19479166666666667" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/activity_base.xml" value="0.1" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/card_item.xml" value="0.20485175202156333" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/dialog_progress.xml" value="0.1" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/fragment_item_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kerol/AndroidStudioProjects/ClicksTask/app/src/main/res/layout/fragment_splash.xml" value="0.21630094043887146" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
