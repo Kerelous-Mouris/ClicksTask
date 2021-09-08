@@ -33,7 +33,7 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
+        // handle swipe down to refresh
         itemsswipetorefresh.setOnRefreshListener {
            SwitchUponStatus()
             itemsswipetorefresh.isRefreshing = false
@@ -45,6 +45,7 @@ class SplashFragment : Fragment() {
 
     }
 
+    //check the internet connection
     fun SwitchUponStatus(){
         var handler: Handler = Handler();
         var runnable =  Runnable{

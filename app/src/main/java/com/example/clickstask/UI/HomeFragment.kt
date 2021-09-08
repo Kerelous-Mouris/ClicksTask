@@ -43,12 +43,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val binding = inflater.inflate(R.layout.fragment_home, container, false)
 
 
-
+        //listen to any change in the search edit text
         binding.search_txt.addTextChangedListener(object: TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //search the list with the user input
                 searchedListHolder!!.clear()
                 listHolder!!.forEach {
                     if (it.sourceData.name.contains(p0!!,true)){
@@ -56,12 +57,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
                     }
                 }
+                //update the adapter with the new list
                 adapter = NewsAdapter(requireActivity(),searchedListHolder as MutableList<NewsModel>)
-//                searchedListHolder!!.clear()
                 news_rec_view.adapter = adapter
             }
 
             override fun afterTextChanged(p0: Editable?) {
+                //restore the adapter with default data if there is no input from the user
                 if (binding.search_txt.text.isNullOrEmpty())
                 {
                     searchedListHolder!!.clear()
@@ -77,15 +79,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         return binding
     }
 
-    override fun onStart() {
-        super.onStart()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-
+            //Call the coroutines method
             runBlocking {
                 setAdapter()
             }
@@ -94,13 +93,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         }
 
+    //attach the adapter to the RecyclerView
     private suspend fun setAdapter(){
+        //start a background thread to handle loading data
         GlobalScope.launch(Dispatchers.IO) {
-
+            //initialize the ViewModel
             newsVM = ViewModelProvider(owner)[NewsVM::class.java]
             newsVM.initialize(mContext)
+            //ask the ViewModel to load the data
             newsVM.getNews()
-
+            //update the UI with the data retrieved
             withContext(Dispatchers.Main){
                 newsVM.newsMutableLiveData.observe(viewLifecycleOwner, {
                         t->

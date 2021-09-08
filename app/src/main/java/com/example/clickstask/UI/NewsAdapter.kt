@@ -21,16 +21,20 @@ class NewsAdapter(private val activity: FragmentActivity, var newsList : Mutable
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item,parent,false)
         return NewsViewHolder(view).listen { position->
+            //create item with the data of position pressed in the adapter
             val newsItem = newsList!![position]
+            //add the item data to the bundle to send them to the other fragment
             val bundle = Bundle()
             bundle.putString("title",newsItem.title)
             bundle.putString("imageURL",newsItem.imageURL)
             bundle.putString("des",newsItem.description)
+            //navigate to the other fragment with the data needed
             activity.findNavController(R.id.nav_host_fragment_container).navigate(R.id.action_homeFragment_to_itemDetailsFragment,bundle)
         }
     }
 
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
+        //call holder binding method
         if (newsList!!.isNotEmpty()){
             val newsItem = newsList!![position]
             holder.onBind(newsItem)
@@ -46,15 +50,12 @@ class NewsAdapter(private val activity: FragmentActivity, var newsList : Mutable
             return 0
     }
 
-    fun updateList(newList: MutableList<NewsModel>){
-        newsList = newList
-        this!!.notifyDataSetChanged()
-    }
-
     class NewsViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         fun onBind(newsItem:NewsModel){
                 itemView.item_title_txt.text = newsItem.title
                 itemView.item_source_txt.text = newsItem.sourceData.name
+            //handle if there is any images missing
+            //notify the user that there is no image for that piece of news
             if (!newsItem.imageURL.isNullOrEmpty())
                 Glide.with(itemView)
                     .load(newsItem.imageURL)
@@ -65,6 +66,7 @@ class NewsAdapter(private val activity: FragmentActivity, var newsList : Mutable
         }
     }
 
+    //add listener to the adapter
     fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int) -> Unit): T {
         itemView.setOnClickListener {
             event.invoke(adapterPosition)

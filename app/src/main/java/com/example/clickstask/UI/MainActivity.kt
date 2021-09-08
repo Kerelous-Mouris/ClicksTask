@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    // this function is responsible to check if the device connected to the internet
     fun isOnline(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

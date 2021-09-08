@@ -11,8 +11,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NewsClient {
 
-    val services: ApiServices
+    private val services: ApiServices
     private const val BASE_URL = "http://newsapi.org/"
+
 
     init {
         val retrofit = Retrofit.Builder()
@@ -23,7 +24,7 @@ object NewsClient {
         services = retrofit.create(ApiServices::class.java)
     }
 
-
+    //function responsible to hit the API and retrieve response
     fun fetchNews(
         onSuccess:(newsList:MutableList<NewsModel>)->Unit,
         onError:(message:String)-> Unit
@@ -35,13 +36,14 @@ object NewsClient {
             ) {
                 if (response.isSuccessful){
                     if (response.body() != null){
+                        //handle the successful response
                         onSuccess.invoke(response.body()!!.articles)
                     }else{
                         onError.invoke("body is null")
                     }
                 }
             }
-
+            //handle response Failure
             override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
                 println(t.message.toString())
                 onError.invoke(t.message.toString())

@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.http.Query
 
 interface ApiServices {
-
+    //preparing the API
     @GET("/v2/top-headlines")
     fun getNews(
         @Query("country") country: String = "eg",
