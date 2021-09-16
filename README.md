@@ -1,5 +1,5 @@
 # ClicksTask
-Clicks Task For Junior Android Developer Position. A simple News application Built from scratch using Kotlin and MVVM architecture pattern. Used Retrofit, Recyclerview, LiveData, and CardView.
+Clicks Task For Junior Android Developer Position. A simple News application Built from scratch using Kotlin and MVVM architecture pattern and Coroutines. Used Retrofit, Recyclerview, LiveData, and CardView.
 
 
 ![](https://github.com/Kerelous-Mouris/ClicksTask/blob/main/Screens/screen1.png)
